@@ -1,27 +1,32 @@
-/*
---SE MODIFICA SEGUN LOS REQUERIMIENTOS DEL DESAFÍO MAS ABAJO NUEVO CODIGO--
-Se solicta el ingreso de un número entero, el cual, se suma el entero 10 y entrega el esultado por pantalla
-let numero1 = prompt('Ingresar un número entero');
-let resultado = parseInt(numero1) + 10;
-alert(resultado);
-*/
-
-//NUEVO CODIGO MEJORADO (RESERVA DE LIBROS PARA FACULTAD)
 
 function probarCodigo(){
+/*
+ENTREGAR AL USUARIO EL VALOR ADUANERO ([VALOR FACTURA+FLETE+SEGURO]-DESCUENTO) Y LOS DERECHOS + IMPUESTOS (IVA+ADVALOREM)
+*/
+const suma  = (a,b) => a + b;
+const resta = (a,b) => a - b;
+const iva = x => x * 0.19;//IVA en CL 19%
+const advalorem = x => x * 0.06;//derechos ad-valorem 6%
 
-let libro;
-let facultad;
-let nombre;
-for(let i=1;i<=3;i++)//Sólo se puede reservar 3 veces.
-{
-libro=prompt("Ingresa el libro que necesitas reservar.");
-facultad=prompt("Indica la facultad en la que estudias.");
-nombre=prompt("Indica tu nombre y apellido para poder generar la reserva del libro.");
-console.log("El libro que quieres reservar es: "+ libro);
-console.log("La facultad en la que estudias es: "+ facultad);
-console.log("La reserva quedó regitrada a nombre de : "+ nombre);
-alert("Muchas gracias, la reserva ha quedado registrada a nombre de: " + nombre);//Da las gracias por cada reserva
-}
+//Ingresar el valor de la factura de importación
+let precio;
+precio=prompt("Ingrese el valor de la factura de Importación")
+//Ingresar valor del flete internacional
+let flete;
+flete=prompt("Ingrese el valor del flete internacional")
+//Ingresar valor del seguro internacional
+let seguro;
+seguro=prompt("Ingrese el valor del seguro internacional")
+//Ingresar el descuento por volumen
+let descuento;
+descuento=prompt("Ingrese el valor del descuento por volumen")
 
+//Calcular el valor aduanero y entregar por consola + ventana al usuario
+let valorAduanero=resta(suma(precio,flete,seguro),descuento);
+console.log(valorAduanero);
+alert("El Valor Aduanero para entregar al Servicio Nacional de Aduanas es : " + valorAduanero);
+//Calcular los derechos e impuestos que se deben pagar al estado
+let derechosImpuestos = suma(iva(precio),advalorem(precio));
+console.log(derechosImpuestos);
+alert("Los Derechos e Impuestos que debe pagar al Estado es la suma de  : " + derechosImpuestos);
 }
