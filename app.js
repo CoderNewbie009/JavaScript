@@ -10,16 +10,16 @@ const advalorem = x => x * 0.06;//derechos ad-valorem 6%
 
 //Ingresar el valor de la factura de importación
 let precio;
-precio=prompt("Ingrese el valor de la factura de Importación")
+precio=parseInt(prompt("Ingrese el valor de la factura de Importación"));
 //Ingresar valor del flete internacional
 let flete;
-flete=prompt("Ingrese el valor del flete internacional")
+flete=parseInt(prompt("Ingrese el valor del flete internacional"));
 //Ingresar valor del seguro internacional
 let seguro;
-seguro=prompt("Ingrese el valor del seguro internacional")
+seguro=parseInt(prompt("Ingrese el valor del seguro internacional"));
 //Ingresar el descuento por volumen
 let descuento;
-descuento=prompt("Ingrese el valor del descuento por volumen")
+descuento=parseInt(prompt("Ingrese el valor del descuento por volumen"));
 
 //Calcular el valor aduanero y entregar por consola + ventana al usuario
 let valorAduanero=resta(suma(precio,flete,seguro),descuento);
